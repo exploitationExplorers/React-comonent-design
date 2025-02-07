@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/exploitationExplorers/React-comonent-design/compare/v1.0.1...v1.0.2) (2025-02-07)
+
+
+### Bug Fixes
+
+* 修复npm包重复的问题 ([b6e4b94](https://github.com/exploitationExplorers/React-comonent-design/commit/b6e4b94c61dbc9bb4736497b29c285334be9a591))
+* 解决冲突 ([c1f7859](https://github.com/exploitationExplorers/React-comonent-design/commit/c1f7859b7a4a1cc7dddd98bc0df6fe44ba16c561))
+
 ## [1.0.1](https://github.com/exploitationExplorers/React-comonent-design/compare/v1.0.0...v1.0.1) (2025-02-07)
 
 
