@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  packages: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: git pull
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: setup node
+        uses: actions/setup-node@v2.5.2
+        with:
+          node-version: "18.18.1" # node 版本
+
+      - name: build
+        run: |
+          npm install -g pnpm@latest-8
+          pnpm install
+          pnpm run build
+
+      - name: npm publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
+        run: |
+          npm cache clean --force
+          npx semantic-release
